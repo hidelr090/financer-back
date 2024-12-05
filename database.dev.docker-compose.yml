@@ -1,0 +1,17 @@
+services:
+  postgres:
+    image: 'postgres:latest'
+    container_name: 'my-postgres-container'
+    environment:
+      POSTGRES_USER: 'postgres'
+      POSTGRES_PASSWORD: 'OFmq1*44cXQ:'
+      POSTGRES_DB: 'financerdev'
+    ports:
+      - "5432:5432"
+    volumes:
+      - 'postgres_data:/var/lib/postgresql/data'
+    restart: 'always'
+
+volumes:
+  postgres_data:
+    driver: 'local'

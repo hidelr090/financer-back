@@ -1,0 +1,32 @@
+{
+  "name": "financer",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "../node_modules/.bin/nodemon financer-back/src/index.js",
+    "migration:create": "npx sequelize-cli migration:generate --name",
+    "migration:run": "npx sequelize-cli db:migrate",
+    "migration:revert": "npx sequelize-cli db:migrate:undo",
+    "migration:reset": "npx sequelize-cli db:migrate:undo:all"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@sequelize/sqlite3": "^7.0.0-alpha.43",
+    "bcrypt": "^5.1.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "jsonwebtoken": "^9.0.2",
+    "nodemon": "^3.1.7",
+    "sequelize": "^6.37.5",
+    "sqlite3": "^5.1.7",
+    "uuid": "^11.0.3"
+  },
+  "devDependencies": {
+    "sequelize-cli": "^6.6.2"
+  }
+}
