@@ -13,6 +13,14 @@ export class Movement  extends  BaseModel {
                     key: 'id',
                 }
             },
+            userId: {
+                type: DataTypes.UUID,
+                allowNull: false,
+                references: {
+                    model: 'user',
+                    key: 'id',
+                }
+            },
             description: {
                 type: DataTypes.STRING,
                 allowNull: true,
@@ -35,6 +43,10 @@ export class Movement  extends  BaseModel {
         this.belongsTo(models.Category, {
             foreignKey: 'categoryId',
             as: 'category',
+        });
+        this.belongsTo(models.Category, {
+            foreignKey: 'userId',
+            as: 'user',
         });
     }
 }

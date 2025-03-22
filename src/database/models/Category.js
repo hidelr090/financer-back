@@ -17,6 +17,14 @@ export class Category extends BaseModel {
                 type: DataTypes.INTEGER,
                 allowNull: false,
             },
+            userId: {
+                type: DataTypes.UUID,
+                allowNull: false,
+                references: {
+                    model: 'user',
+                    key: 'id',
+                }
+            },
             spreadsheetId: {
                 type: DataTypes.UUID,
                 allowNull: false,
@@ -35,6 +43,10 @@ export class Category extends BaseModel {
         this.belongsTo(models.Spreadsheet,{
             foreignKey: 'spreadsheetId',
             as: 'spreadsheet',
+        });
+        this.belongsTo(models.Spreadsheet,{
+            foreignKey: 'userId',
+            as: 'user',
         });
         this.hasMany(models.Movement,{
             foreignKey: 'categoryId',

@@ -13,9 +13,11 @@ export class MovementRepository {
         }
     }
 
-    async selectAll() {
+    async selectAll(conditions) {
         try {
-            return await this.repository.findAll({raw: true});
+            return await this.repository.findAll({where: {
+                userId: conditions.userId,
+                }, raw: true});
         }catch (error) {
             throw error;
         }

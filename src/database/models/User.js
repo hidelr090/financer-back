@@ -46,5 +46,9 @@ export class User extends BaseModel {
             foreignKey: 'userId',
             onDelete: 'CASCADE',
         })
+        this.hasMany(models.Category, {
+            foreignKey: 'userId',
+            onDelete: 'CASCADE',
+        })
     }
 }
